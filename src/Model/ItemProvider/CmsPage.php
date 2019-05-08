@@ -62,7 +62,7 @@ class CmsPage implements ItemProviderInterface
         $collection = $this->cmsPageFactory->create()->getCollection($storeId);
         $items = array_map(function ($item) use ($storeId) {
             return $this->itemFactory->create([
-                'url' => DIRECTORY_SEPARATOR . 'page' . DIRECTORY_SEPARATOR . $item->getUrl(),
+                'url' => DIRECTORY_SEPARATOR . $item->getUrl(),
                 'updatedAt' => $item->getUpdatedAt(),
                 'images' => $item->getImages(),
                 'priority' => $this->configReader->getPriority($storeId),
