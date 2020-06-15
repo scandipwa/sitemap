@@ -77,6 +77,6 @@ class Product implements ItemProviderInterface
     
     private function generateUrl($itemUrl)
     {
-        return DIRECTORY_SEPARATOR . rtrim($itemUrl, '.html') . '?variant=0';
+        return DIRECTORY_SEPARATOR . str_replace('.html', '', $itemUrl) . '?variant=0';
     }
 }

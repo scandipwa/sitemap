@@ -64,7 +64,7 @@ class Category implements ItemProviderInterface
             ->getCollection($storeId);
         $items = array_map(function ($item) use ($storeId) {
             return $this->itemFactory->create([
-                'url' => DIRECTORY_SEPARATOR . rtrim($item->getUrl(), '.html'),
+                'url' => DIRECTORY_SEPARATOR . str_replace('.html', '', $item->getUrl()),
                 'updatedAt' => $item->getUpdatedAt(),
                 'images' => $item->getImages(),
                 'priority' => $this->configReader->getPriority($storeId),
